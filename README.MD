@@ -1,6 +1,8 @@
 ## Material
 This project is using the code and explanation from this blog post  https://mherman.org/blog/node-grpc-postgres/
 
+## Diagram of the project
+![gRPC and REST](rest_grpc.jpg "Diagram about the project")
 ## Notes
 1 - When you run the migrate command you problably will get a timeout error from knex. The fix: UP the version of `pg` to at least 8.x. As see in https://github.com/knex/knex/issues/3831
 2 - Blog post about running microservices with gRPC at scale https://www.bugsnag.com/blog/grpc-and-microservices-architecture
