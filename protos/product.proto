@@ -1,0 +1,40 @@
+syntax = "proto3";
+package product;
+
+// service definition
+service ProductService {
+    rpc listProducts(Empty) returns (ProductList) {}
+    rpc readProduct(ProductId) returns (Product) {}
+    rpc createProduct(newProduct) returns (result) {}
+    rpc updateProduct(Product) returns (result) {}
+    rpc deleteProduct(ProductId) returns (result) {}
+}
+
+// message type definitions
+message Empty {}
+
+message ProductList {
+    // The repeated keyword is used to define an array of objects. https://developers.google.com/protocol-buffers/docs/proto3#specifying_field_rules
+    
+    repeated Product products = 1; 
+}
+
+message ProductId {
+    int32 id = 1;
+}
+
+message Product {
+    int32 id = 1; // <--  These field numbers are used to identify your fields in the message binary format, and should not be changed once your message type is in use
+    string name = 2;
+    string price = 3;
+}
+
+message newProduct {
+    string name = 1;
+    string price = 2;
+}
+
+message result {
+    string status = 1;
+}
+
